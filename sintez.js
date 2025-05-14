@@ -12,9 +12,9 @@ function generatePCM(frequency, duration) {
   const samples = [];
   const R = 44100;
   const A = 32767;
-  for(let n = 0; n < R; n++){
-    const sample = A * Math.sin(2 * Math.PI * frequency * (n / R))
-    samples.push(sample)
+  for (let n = 0; n < R * duration / 1000; n++) {
+    const sample = A * Math.sin(2 * Math.PI * frequency * (n / R));
+    samples.push(sample);
   }
   return samples;
 }
